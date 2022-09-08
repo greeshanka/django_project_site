@@ -20,13 +20,13 @@ class News(models.Model):  # Вторичная модель
     def get_absolute_url(self):
         return reverse('view_news', kwargs={"pk": self.pk})
 
-    def __str__(self):
-        return self.title
-
     class Meta:  # Первичная модель
         verbose_name = 'Новость'  # название в ед. числе
         verbose_name_plural = 'Новости'  # название в мн. числе
         ordering = ['-created_et']  # Сортировака новостей
+
+    def __str__(self):
+        return self.title
 
 
 class Category(models.Model):
